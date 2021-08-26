@@ -1,0 +1,4 @@
+LIBRARY   crypto
+EXPORTS
+   encrypt
+   decrypt
