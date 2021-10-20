@@ -3,7 +3,10 @@
 #
 
 list(APPEND FLUTTER_PLUGIN_LIST
+  drag_and_drop
   file_opener
+  native_crypto
+  progress
 )
 
 set(PLUGIN_BUNDLED_LIBRARIES)
