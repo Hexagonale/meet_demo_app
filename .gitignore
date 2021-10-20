@@ -44,9 +44,3 @@ app.*.map.json
 /android/app/debug
 /android/app/profile
 /android/app/release
-
-ffi/CMakeFiles
-ffi/CMakeCache.txt
-ffi/*.vcxproj*
-ffi/*.sln
-ffi/cmake_install.cmake
