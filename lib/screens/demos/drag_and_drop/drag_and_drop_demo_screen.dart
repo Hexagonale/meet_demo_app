@@ -1,9 +1,8 @@
 import 'dart:io';
 
 import 'package:fh_meet/routing/reval_route.dart';
+import 'package:fh_meet/widgets/drop_zone.dart';
 import 'package:flutter/material.dart';
-
-import 'widgets/drop_zone.dart';
 
 class DragAndDropDemoScreen extends StatefulWidget {
   const DragAndDropDemoScreen({Key? key}) : super(key: key);
@@ -34,8 +33,12 @@ class _DragAndDropDemoScreenState extends State<DragAndDropDemoScreen> {
           padding: const EdgeInsets.all(8.0),
           child: Column(
             children: <Widget>[
-              DropZone(
-                onFilesDropped: _onFilesDropped,
+              SizedBox(
+                width: 500.0,
+                height: 250.0,
+                child: DropZone(
+                  onFilesDropped: _onFilesDropped,
+                ),
               ),
               const SizedBox(height: 24.0),
               Expanded(

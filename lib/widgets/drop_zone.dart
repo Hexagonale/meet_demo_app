@@ -51,17 +51,13 @@ class _DropZoneState extends State<DropZone> {
           10.0,
         ],
         radius: const Radius.circular(16.0),
-        child: const SizedBox(
-          width: 500.0,
-          height: 250.0,
-          child: Center(
-            child: Text(
-              'Drop files here',
-              style: TextStyle(
-                color: Colors.black38,
-                fontWeight: FontWeight.w600,
-                fontSize: 28.0,
-              ),
+        child: const Center(
+          child: Text(
+            'Drop files here',
+            style: TextStyle(
+              color: Colors.black38,
+              fontWeight: FontWeight.w600,
+              fontSize: 28.0,
             ),
           ),
         ),
