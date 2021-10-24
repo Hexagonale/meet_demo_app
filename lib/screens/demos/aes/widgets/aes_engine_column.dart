@@ -5,6 +5,7 @@ import 'package:fh_meet/screens/demos/aes/models/aes_engine.dart';
 import 'package:fh_meet/screens/demos/aes/models/aes_engine_column_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:pointycastle/digests/sha256.dart';
+import 'package:progress/progress.dart';
 
 class AesEngineColumn extends StatefulWidget {
   const AesEngineColumn({
@@ -151,6 +152,7 @@ class _AesEngineColumnState extends State<AesEngineColumn> {
       encrypted += data.length;
 
       _progress = encrypted / size;
+      Progress.setProgress(_progress);
       setState(() {});
     }
 
@@ -162,5 +164,7 @@ class _AesEngineColumnState extends State<AesEngineColumn> {
     _checksum = shaDigest.state.map((int el) => el.toRadixString(16)).join();
     _speed = (size / _stopwatch.elapsedMicroseconds) * 1000 * 1000;
     setState(() {});
+
+    Progress.setProgress(0.0);
   }
 }
