@@ -7,11 +7,10 @@ import 'widgets/progress_type_selector.dart';
 class ProgressDemoScreen extends StatefulWidget {
   const ProgressDemoScreen({Key? key}) : super(key: key);
 
-  static RevealRoute getRoute() {
+  static RevealRoute getRoute(GlobalKey centerWidgetKey) {
     return RevealRoute(
       page: const ProgressDemoScreen(),
-      maxRadius: 800.0,
-      centerAlignment: Alignment.center,
+      centerWidgetKey: centerWidgetKey,
     );
   }
 

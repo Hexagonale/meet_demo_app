@@ -1,22 +1,15 @@
 import 'package:flutter/material.dart';
 import 'circular_reveal_clipper.dart';
 
+/// Reveals the next item pushed to the navigation using circle shape.
+///
+/// The transition doesn't affect the entry screen so we will only touch
+/// the target screen.
 class RevealRoute extends PageRouteBuilder<Widget> {
-  /// Reveals the next item pushed to the navigation using circle shape.
-  ///
-  /// You can provide [centerAlignment] for the reveal center or if you want a
-  /// more precise use only [centerOffset] and leave other blank.
-  ///
-  /// The transition doesn't affect the entry screen so we will only touch
-  /// the target screen.
   RevealRoute({
     required this.page,
-    required this.maxRadius,
-    this.minRadius = 0,
-    this.centerAlignment,
-    this.centerOffset,
-  })  : assert(centerOffset != null || centerAlignment != null),
-        super(
+    required this.centerWidgetKey,
+  }) : super(
           /// We could override pageBuilder but it's a required parameter of
           /// [PageRouteBuilder] and it won't build unless it's provided.
           pageBuilder: (
@@ -29,10 +22,7 @@ class RevealRoute extends PageRouteBuilder<Widget> {
         );
 
   final Widget page;
-  final double maxRadius;
-  final double minRadius;
-  final Alignment? centerAlignment;
-  final Offset? centerOffset;
+  final GlobalKey centerWidgetKey;
 
   @override
   Widget buildTransitions(
@@ -41,13 +31,19 @@ class RevealRoute extends PageRouteBuilder<Widget> {
     Animation<double> secondaryAnimation,
     Widget child,
   ) {
+    final RenderBox box = centerWidgetKey.currentContext!.findRenderObject() as RenderBox;
+    final Offset position = box.localToGlobal(Offset.zero);
+    final Size size = box.size;
+
+    final Offset center = Offset(
+      position.dx + (size.width / 2),
+      position.dy + (size.height / 2),
+    );
+
     return ClipPath(
       clipper: CircularRevealClipper(
         fraction: animation.value,
-        centerAlignment: centerAlignment,
-        centerOffset: centerOffset,
-        minRadius: minRadius,
-        maxRadius: maxRadius,
+        center: center,
       ),
       child: child,
     );

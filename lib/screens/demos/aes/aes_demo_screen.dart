@@ -13,11 +13,10 @@ import 'widgets/aes_engine_column.dart';
 class AesDemoScreen extends StatefulWidget {
   const AesDemoScreen({Key? key}) : super(key: key);
 
-  static RevealRoute getRoute() {
+  static RevealRoute getRoute(GlobalKey centerWidgetKey) {
     return RevealRoute(
       page: const AesDemoScreen(),
-      maxRadius: 800.0,
-      centerAlignment: Alignment.center,
+      centerWidgetKey: centerWidgetKey,
     );
   }
 

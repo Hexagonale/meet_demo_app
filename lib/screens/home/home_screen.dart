@@ -9,13 +9,18 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
 class HomeScreen extends StatelessWidget {
-  const HomeScreen({Key? key}) : super(key: key);
+  HomeScreen({Key? key}) : super(key: key);
 
   static MaterialPageRoute<Widget> getRoute() {
     return MaterialPageRoute<Widget>(
-      builder: (BuildContext _) => const HomeScreen(),
+      builder: (BuildContext _) => HomeScreen(),
     );
   }
+
+  final GlobalKey progressButtonKey = GlobalKey();
+  final GlobalKey dragAndDropButtonKey = GlobalKey();
+  final GlobalKey aesButtonKey = GlobalKey();
+  final GlobalKey sha256ButtonKey = GlobalKey();
 
   @override
   Widget build(BuildContext context) {
@@ -74,21 +79,25 @@ class HomeScreen extends StatelessWidget {
     return Column(
       children: <Widget>[
         Button(
+          key: progressButtonKey,
           text: 'Progress Demo',
           onTap: () => _goToProgress(context),
         ),
         const SizedBox(height: 12.0),
         Button(
+          key: dragAndDropButtonKey,
           text: 'Drag and Drop Demo',
           onTap: () => _goToDragAndDrop(context),
         ),
         const SizedBox(height: 12.0),
         Button(
+          key: aesButtonKey,
           text: 'AES Encryption Demo',
           onTap: () => _goToAes(context),
         ),
         const SizedBox(height: 12.0),
         Button(
+          key: sha256ButtonKey,
           text: 'SHA256 GPU Demo',
           onTap: () => _goToSha256(context),
         ),
@@ -110,18 +119,30 @@ class HomeScreen extends StatelessWidget {
   }
 
   void _goToProgress(BuildContext context) {
-    Navigator.push(context, ProgressDemoScreen.getRoute());
+    Navigator.push(
+      context,
+      ProgressDemoScreen.getRoute(progressButtonKey),
+    );
   }
 
   void _goToDragAndDrop(BuildContext context) {
-    Navigator.push(context, DragAndDropDemoScreen.getRoute());
+    Navigator.push(
+      context,
+      DragAndDropDemoScreen.getRoute(dragAndDropButtonKey),
+    );
   }
 
   void _goToAes(BuildContext context) {
-    Navigator.push(context, AesDemoScreen.getRoute());
+    Navigator.push(
+      context,
+      AesDemoScreen.getRoute(aesButtonKey),
+    );
   }
 
   void _goToSha256(BuildContext context) {
-    Navigator.push(context, Sha256DemoScreen.getRoute());
+    Navigator.push(
+      context,
+      Sha256DemoScreen.getRoute(sha256ButtonKey),
+    );
   }
 }

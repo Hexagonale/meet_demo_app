@@ -7,29 +7,23 @@ import 'package:flutter/material.dart';
 class CircularRevealClipper extends CustomClipper<Path> {
   const CircularRevealClipper({
     required this.fraction,
-    this.centerAlignment,
-    this.centerOffset,
-    this.minRadius,
-    this.maxRadius,
+    required this.center,
   });
 
   final double fraction;
-  final Alignment? centerAlignment;
-  final Offset? centerOffset;
-  final double? minRadius;
-  final double? maxRadius;
+  final Offset center;
 
   @override
   Path getClip(Size size) {
-    final Offset center = centerAlignment?.alongSize(size) ?? centerOffset ?? Offset(size.width / 2, size.height / 2);
-    final double minRadius = this.minRadius ?? 0;
-    final double maxRadius = this.maxRadius ?? calcMaxRadius(size, center);
+    final double w = max(center.dx, size.width - center.dx);
+    final double h = max(center.dy, size.height - center.dy);
+    final double maxRadius = sqrt(w * w + h * h);
 
     return Path()
       ..addOval(
         Rect.fromCircle(
           center: center,
-          radius: lerpDouble(minRadius, maxRadius, fraction)!,
+          radius: lerpDouble(0, maxRadius, fraction)!,
         ),
       );
   }
@@ -37,12 +31,5 @@ class CircularRevealClipper extends CustomClipper<Path> {
   @override
   bool shouldReclip(CustomClipper<Path> oldClipper) {
     return true;
-  }
-
-  static double calcMaxRadius(Size size, Offset center) {
-    final double w = max(center.dx, size.width - center.dx);
-    final double h = max(center.dy, size.height - center.dy);
-
-    return sqrt(w * w + h * h);
   }
 }

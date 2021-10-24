@@ -7,11 +7,10 @@ import 'package:flutter/material.dart';
 class DragAndDropDemoScreen extends StatefulWidget {
   const DragAndDropDemoScreen({Key? key}) : super(key: key);
 
-  static RevealRoute getRoute() {
+  static RevealRoute getRoute(GlobalKey centerWidgetKey) {
     return RevealRoute(
       page: const DragAndDropDemoScreen(),
-      maxRadius: 800.0,
-      centerAlignment: Alignment.center,
+      centerWidgetKey: centerWidgetKey,
     );
   }
 
