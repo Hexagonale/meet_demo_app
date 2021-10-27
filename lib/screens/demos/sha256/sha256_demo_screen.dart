@@ -13,9 +13,17 @@ class Sha256DemoScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
-      body: Center(
-        child: Text('Sha256DemoScreen'),
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text('GPU SHA256 Demo'),
+      ),
+      body: const Center(
+        child: Text(
+          'Another time :(',
+          style: TextStyle(
+            fontSize: 24,
+          ),
+        ),
       ),
     );
   }

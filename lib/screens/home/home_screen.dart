@@ -98,7 +98,7 @@ class HomeScreen extends StatelessWidget {
         const SizedBox(height: 12.0),
         Button(
           key: sha256ButtonKey,
-          text: 'SHA256 GPU Demo',
+          text: 'GPU SHA256 Demo',
           onTap: () => _goToSha256(context),
         ),
       ],
