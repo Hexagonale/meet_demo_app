@@ -24,8 +24,6 @@ dependencies:
   dotted_border: ^2.0.0+1
   drag_and_drop:
     path: ../drag_and_drop
-  file_opener:
-    path: ../file_opener
   flutter:
     sdk: flutter
   flutter_svg: ^0.23.0+1
