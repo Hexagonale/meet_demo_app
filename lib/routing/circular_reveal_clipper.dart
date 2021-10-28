@@ -3,6 +3,7 @@ import 'dart:ui' show lerpDouble;
 
 import 'package:flutter/material.dart';
 
+/// Clips circle at given [center] that contains [fraction] of the object size.
 @immutable
 class CircularRevealClipper extends CustomClipper<Path> {
   const CircularRevealClipper({

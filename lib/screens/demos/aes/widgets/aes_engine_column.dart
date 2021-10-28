@@ -142,10 +142,12 @@ class _AesEngineColumnState extends State<AesEngineColumn> {
     final int size = file.statSync().size;
     int encrypted = 0;
 
+    /// Open stream to read a file.
     final Stream<List<int>> stream = file.openRead();
     await for (List<int> chunk in stream) {
       final Uint8List data = Uint8List.fromList(chunk);
 
+      /// Encrypt data and hash cipher text.
       final Uint8List cipher = await widget.engine.add(data);
       shaDigest.process(cipher);
 

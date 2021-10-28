@@ -3,8 +3,9 @@ import 'circular_reveal_clipper.dart';
 
 /// Reveals the next item pushed to the navigation using circle shape.
 ///
-/// The transition doesn't affect the entry screen so we will only touch
-/// the target screen.
+/// The transition doesn't affect the entry screen so we will only touch the target screen.
+/// 
+/// Modified https://onetdev.medium.com/circle-reveal-page-route-transition-in-flutter-7b44460d22e2
 class RevealRoute extends PageRouteBuilder<Widget> {
   RevealRoute({
     required this.page,
