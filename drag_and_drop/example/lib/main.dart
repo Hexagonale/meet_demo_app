@@ -36,6 +36,7 @@ class _HomeState extends State<Home> {
 
     DragAndDrop.setAcceptDrop(true);
     DragAndDrop.filesDroppedStream.listen((List<String> files) {
+      // ignore: avoid_print
       print('Files dropped: $files');
     });
   }

@@ -1,4 +1,5 @@
 import 'dart:async';
+import 'dart:developer';
 
 import 'package:flutter/services.dart';
 
@@ -30,21 +31,21 @@ class DragAndDrop {
         return await _onFilesDropped(methodCall.arguments);
 
       default:
-        print('Unknown method ${methodCall.method}');
+        log('Unknown method ${methodCall.method}');
         break;
     }
   }
 
   static Future<void> _onFilesDropped(dynamic arguments) async {
     if (arguments is! List<Object?>) {
-      print('[_onFilesDropped] Incorrect argument type');
+      log('[_onFilesDropped] Incorrect argument type');
       return;
     }
 
     final List<String> paths = [];
     for (final Object? path in arguments) {
       if (path == null) {
-        print('[_onFilesDropped] Path is null');
+        log('[_onFilesDropped] Path is null');
         continue;
       }
 
