@@ -1,6 +1,5 @@
 import 'package:flutter/services.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:drag_and_drop/drag_and_drop.dart';
 
 void main() {
   const MethodChannel channel = MethodChannel('drag_and_drop');
@@ -15,9 +14,5 @@ void main() {
 
   tearDown(() {
     channel.setMockMethodCallHandler(null);
-  });
-
-  test('getPlatformVersion', () async {
-    expect(await DragAndDrop.platformVersion, '42');
   });
 }
