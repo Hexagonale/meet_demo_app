@@ -1,9 +1,0 @@
-{
-    "cSpell.words": [
-        "HCRYPTHASH",
-        "HCRYPTPROV"
-    ],
-    "files.associations": {
-        "ostream": "cpp"
-    }
-}
