@@ -119,9 +119,11 @@ packages:
   native_crypto:
     dependency: "direct main"
     description:
-      path: "../crypto"
-      relative: true
-    source: path
+      path: "."
+      ref: master
+      resolved-ref: dc702dc3b1133979ce54e8c3694a939a2c35980d
+      url: "git@github.com:Hexagonale/native_crypto.git"
+    source: git
     version: "0.0.1"
   path:
     dependency: transitive
