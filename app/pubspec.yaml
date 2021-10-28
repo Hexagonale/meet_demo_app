@@ -29,7 +29,7 @@ dependencies:
   flutter_svg: ^0.23.0+1
   native_crypto:
     git:
-      ref: master
+      ref: feature/optimization 
       url: git@github.com:Hexagonale/native_crypto.git
   pointycastle: ^3.3.4
   progress:

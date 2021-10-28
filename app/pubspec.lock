@@ -120,8 +120,8 @@ packages:
     dependency: "direct main"
     description:
       path: "."
-      ref: master
-      resolved-ref: dc702dc3b1133979ce54e8c3694a939a2c35980d
+      ref: "feature/optimization"
+      resolved-ref: e2d1bb2617e9595d38faad3194540fa506d7bff9
       url: "git@github.com:Hexagonale/native_crypto.git"
     source: git
     version: "0.0.1"
